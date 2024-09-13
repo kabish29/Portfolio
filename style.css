@@ -736,3 +736,20 @@ body {
 .footer-links a:hover {
     color: #f9f9f9;
 }
+.typing {
+    border-right: 2px solid;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0; /* Hide text initially */
+    animation: typing 3s steps(10, end), blink .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 12ch; } /* Adjust this value to fit the length of "Kabish" */
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}

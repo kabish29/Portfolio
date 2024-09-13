@@ -42,18 +42,15 @@
 
 <section class="home" id="home">
     <div class="home-content">
-        <h1>Hi, I'm Kabish  <span class="text"></span></h1>
+        <h1><span class="typing"></span></h1>
         <h3>Application Developer, Backend and Database</h3>
-        <p>I am qualified professional with creative and
-            analytics skills. I am able to
-            lead the team and committed professional
-            growth
-            </p>
+        <p>I am a qualified professional with creative and analytical skills. I am able to lead the team and committed to professional growth.</p>
         <div class="btn-box">
-            <a href="mailto:  kpkabish@gmail.com">Contact Me</a>
+            <a href="mailto: kpkabish@gmail.com">Contact Me</a>
             <a href="myresume.pdf" target="_blank">Resume</a>
         </div>
     </div>
+
 
 
 
@@ -365,6 +362,50 @@
     <script>
         AOS.init();
       </script>
+      <script>
+        const text = "Hi, I'm Kabish";
+        const typingElement = document.querySelector(".typing");
+    
+        function type() {
+            typingElement.textContent = "";
+            let i = 0;
+            const typingSpeed = 100; // Adjust typing speed here
+    
+            const typingInterval = setInterval(() => {
+                if (i < text.length) {
+                    typingElement.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typingInterval);
+                    setTimeout(() => {
+                        erase();
+                    }, 2000); // Wait before erasing
+                }
+            }, typingSpeed);
+        }
+    
+        function erase() {
+            let i = text.length;
+            const erasingSpeed = 50; // Adjust erasing speed here
+    
+            const erasingInterval = setInterval(() => {
+                if (i > 0) {
+                    typingElement.textContent = text.substring(0, i - 1);
+                    i--;
+                } else {
+                    clearInterval(erasingInterval);
+                    setTimeout(() => {
+                        type();
+                    }, 500); // Wait before typing again
+                }
+            }, erasingSpeed);
+        }
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(type, 1000); // Initial delay before starting
+        });
+    </script>
+    
 
 
 </body>
